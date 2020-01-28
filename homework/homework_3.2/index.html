@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>homework_2.2</title>
+</head>
+
+<body>
+    <p class="lead">Rakesh Das</p>
+    <form id="orderOptions">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" />
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="whereEating" id="eatInRadio" value="eatIn">
+            <label class="form-check-label" for="eatInRadio">
+                Eat In
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="whereEating" id="carryOutRadio"value="carryOut">
+            <label class="form-check-label" for="carryOutRadio">
+                Carry Out
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="whereEating" id="deliveryRadio" value="delivery">
+            <label class="form-check-label" for="deliveryRadio">
+                Delivery
+            </label>
+        </div>
+        <select class="form-control">
+            <option value="burgers">Burgers</option>
+            <option value="pizza">Pizza</option>
+            <option value="sushi">Sushi</option>
+        </select>
+    </form>
+</body>
+
+</html>
