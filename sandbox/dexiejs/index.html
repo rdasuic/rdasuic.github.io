@@ -1,0 +1,19 @@
+
+
+<!-- Some HTML for the log window -->
+<a href="http://dexie.org/docs/API-Reference" target="_new">Dexie API Reference (new tab)</a>
+<div style="float:right">Check out this
+  <a href="https://jsfiddle.net/dfahlander/5rbc996o/" target="_top">
+    await fiddle </a> also!
+</div>
+<h3>Log</h3>
+<textarea id="log"></textarea>
+
+<!-- Just a simple log function... --> 
+<script>
+  function log(txt) {document.getElementById('log').value+=txt+"\n";}
+</script>
+
+<!-- Include dexie.js -->
+<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+<script src="script.js"></script>
