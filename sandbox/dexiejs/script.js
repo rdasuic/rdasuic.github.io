@@ -20,7 +20,7 @@ db.open().then(function(){
 
 	return db.friends
 		.where('age')
-		.between(40,65)
+		.between(40,60)
 		.toArray();
 
 }).then(function(friends){
