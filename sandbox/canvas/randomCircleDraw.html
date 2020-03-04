@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+  </head>
+  <body>
+
+    <canvas></canvas>
+    <h1>Circles:<span id="num_circles"></span></h1>
+
+
+    <script>
+      let colors = ["sand","red","green","blue","black","orange","purple"];
+      let radii = [5,10];
+      let circles = 0;
+      let circleCount = document.querySelector("#num_circles");
+      
+      let c = document.querySelector("canvas");
+      c.width=500;
+      c.height=500;
+      let ctx = c.getContext("2d");
+
+
+
+      const drawFilledCircle = (x,y,color,radius) => {
+        ctx.beginPath();
+        ctx.arc(x,y,radius,0, Math.PI*2);
+        ctx.fillStyle = color;
+        ctx.closePath();
+        ctx.fill();
+        circles++;
+        circleCount.textContent = circles;
+        if(circles > 1500) {
+          ctx.clearRect(0, 0, c.width, c.height);
+          circles = 0;
+        }
+      }
+
+
+      const draw = () => {
+
+        let color = colors[Math.floor(Math.random()*colors.length)];
+        let x = Math.floor(Math.random()*c.width);
+        let y = Math.floor(Math.random()*c.height);
+        let radius = radii[Math.floor(Math.random()*radii.length)];
+        
+        if (Math.floor(Math.random()*100) % 3 == 0) {
+          ctx.fillStyle = color;
+          ctx.fillRect(x,y,radius*3,radius*2);
+
+        } else {
+          drawFilledCircle(x, y, color, radius);          
+        }
+
+
+        window.requestAnimationFrame(draw);
+      }
+
+      draw()
+
+
+
+
+
+
+      </script>
+
+  </body>
+</html>
