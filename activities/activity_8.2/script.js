@@ -1,5 +1,6 @@
 // data from https://data.cityofchicago.org/resource/4ijn-s7e5.json?$LIMIT=10
-let inspection_data = [{
+let inspectionData = [
+    {
     "inspection_id": "2363101",
     "dba_name": "A & S FOOD",
     "aka_name": "A & S FOOD",
@@ -207,15 +208,14 @@ let inspection_data = [{
     }
 }]
 
-function initMap() {
+initMap = () => {
     let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: {"lat": parseFloat(inspection_data[0].location.latitude), "lng": parseFloat(inspection_data[0].location.longitude)}
+        zoom: 10,
+        center: {"lat": parseFloat(inspectionData[0].latitude), "lng": parseFloat(inspectionData[0].longitude)}
     });
-    for(bus of inspection_data) {
-        console.log(bus);
+    for(bus of inspectionData) {
         let marker = new google.maps.Marker({
-            position: {"lat": parseFloat(bus.location.latitude), "lng": parseFloat(bus.location.longitude)},
+            position: {"lat": parseFloat(bus.latitude), "lng": parseFloat(bus.longitude)},
             map: map,
             title: bus.dba_name
         });

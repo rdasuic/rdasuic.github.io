@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HW 8.3</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button type="submit">Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        const list = document.querySelector('ul');
+        const submitBtn = document.querySelector('button');
+        const textBox = document.querySelector('input');
+        submitBtn.addEventListener('click', () => {
+         if(textBox.value != "") {
+             let newItem = textBox.value;
+             textBox.value = "";
+             let listEl = document.createElement('li');
+             let span = document.createElement('span');
+             let deleteBtn = document.createElement('button');
+             deleteBtn.textContent = 'Delete';
+             span.textContent = newItem;
+             listEl.appendChild(span);
+             listEl.appendChild(deleteBtn);
+             list.appendChild(listEl);
+             deleteBtn.addEventListener('click', () => {
+                 list.removeChild(listEl);
+             });
+         }   
+        })
+    </script>
+  </body>
+</html>
