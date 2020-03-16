@@ -12,11 +12,18 @@
             margin:0;
         }
     </style>
+    <script>
+        const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar'));
+        topAppBar.setScrollTarget(document.getElementById('main-content'));
+        topAppBar.listen('MDCTopAppBar:nav', () => {
+            drawer.open = !drawer.open;
+        });
+    </script>
     <title>Activity 9.1</title>
 </head>
 
 <body>
-    <header class="mdc-top-app-bar">
+    <header class="mdc-top-app-bar" id="app-bar">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
                 <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
@@ -29,8 +36,25 @@
             </section>
         </div>
     </header>
-
-    <main class="mdc-top-app-bar--fixed-adjust">
+    <aside class="mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+                    <span class="mdc-list-item__text">Inbox</span>
+                </a>
+                <a class="mdc-list-item" href="#">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                    <span class="mdc-list-item__text">Outgoing</span>
+                </a>
+                <a class="mdc-list-item" href="#">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                    <span class="mdc-list-item__text">Drafts</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+    <main class="mdc-top-app-bar--fixed-adjust" id="main-content">
         <button class="mdc-button mdc-button--raised"> <span class="mdc-button__ripple"></span>Raised</button>
     </main>
 
