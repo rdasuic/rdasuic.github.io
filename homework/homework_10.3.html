@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      const drawChart = () => {
+
+        // Create the data table.
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+          
+        // Set chart options
+        let options = {'title':'How Much Pizza I Ate Last Night',
+                       'is3D': true,
+                       'width':500,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        let chart = new google.visualization.BarChart(document.querySelector('#chart_div'));
+        chart.draw(data, options);
+      }
+      const drawInventoryChart = () => {
+        let inventoryCount = new google.visualization.DataTable();
+        inventoryCount.addColumn('string', 'item');
+        inventoryCount.addColumn('number', 'count');
+        inventoryCount.addRows([
+            ['4x10s', 56],
+            ['Screwdrivers', 15],
+            ['Socket Wrenches', 23],
+            ['Crecent Wrenches', 12],
+            ['Allen Keys', 2],
+            ['Hammers', 6],
+            ['Pliers', 45]
+        ]);
+        
+
+        // Set chart options
+        let options = {'title':'Inventory Count',
+                       'legend': {position: 'none'},
+                       'width':500,
+                       'height':300};
+        let chart = new google.visualization.BarChart(document.querySelector('#inventory_div'));
+        chart.draw(inventoryCount, options);
+      }
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(() => {
+          drawChart();
+          drawInventoryChart();
+      });
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+    <div id="inventory_div"></div>
+  </body>
+</html>
