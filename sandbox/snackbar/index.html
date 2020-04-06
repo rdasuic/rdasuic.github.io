@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+   
+</head>
+
+<body>
+    <h1>Test</h1>
+
+
+    <div class="mdc-snackbar">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label" role="status" aria-live="polite">
+                Can't send photo. Retry in 5 seconds.
+            </div>
+            <div class="mdc-snackbar__actions">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Retry</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
+        snackbar.open();
+        const snackbarButton = document.querySelector('.mdc-snackbar__action');
+        snackbarButton.addEventListener('click', (ev) => {
+            console.log('click');
+            snackbar.open();
+        })
+    </script>
+
+</body>
+
+</html>
